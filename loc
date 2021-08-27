@@ -1,0 +1,15 @@
+# folder names of extracted sources
+# this is for ease of use
+musl - musl-1.1.24/
+busybox - busybox-1.32.1/
+kati - kati-master/
+samurai - samurai-1.2/
+tcc - tinycc-a4997bf/
+pkgconf - pkgconf-1.7.4/
+openssl - openssl-1.1.1k/
+perl - perl-5.34.0/
+bzip2 - bzip2-1.0.8/
+libarchive - libarchive-3.5.1/
+liblz4 - lz4-1.9.3/
+liblzma - xz-5.2.5/
+libzstd - zstd-1.5.0/

@@ -1,0 +1,32 @@
+###
+- nG: A base for xbps 100% GNU free
+  - nG is not an actual distro but rather a write up
+  - on the requirements for setting an xbps system
+  - 100% without GNU
+- nG only provides the basics for avoiding GNU
+  - while creating a base xbps chroot
+---
+- See `./deplist` for a list of dependencies + there replacements
+---
+- Setup:
+  - 1: start by creating a new folder "somewhere" (the folder is called <ROOT>)
+  - 2: steal a copy of the go compiler from alpine (see `./deplist`) and add it to your PATH
+  - 3: make sure a posix shell is present on the host system
+  - 4: compile/obtain a copy of bmake
+  - 5: obtain a copy of the kati source code 
+  - 6: enter the folder of said source code and apply `./make.patch` using patch
+  - 7: compile kati via `bmake kati` (requires go and ninja (see `./deplist`))
+    - This will produce a `ckati` binary, it can be used as a replacement for (GNU)make
+    - With the following flags
+    - `ckati --ninja --ninja_dir=build --regen --use_find_emulator --color_warnings`
+      - This requires a `./build` folder; and produces a `<>/build/ninja.sh` script
+      - Run said `<>/build/ninja.sh` script to compile (GNU)make projects
+  - 8: compile/obtain a copy of busybox (requires (GNU)make; use ckati; see above)
+    - Set it's prefix to <ROOT> when compiling; otherwise install to <ROOT>/(usr/)
+  - 9: compile/obtain a copy of musl (requires (GNU)make; use ckati; see 7)
+    - Set it's prefix to <ROOT> when compiling; otherwise install to <ROOT>/
+  -- The above creates a stage 0 system
+  -- Below is for compiling xbps; static xbps can be used
+  - 10: compile/obtain a C99 compiler (tcc, pcc, clang)
+  - 
+###

@@ -1,0 +1,39 @@
+# KISS (or void/alpine) - is used for dep references
+# - X means none
+# C compiler, linux-headers and a host libc are implied
+--- Stage 0 system
+- musl (libc)
+  - make -> GNU
+    - Replace with - kati
+- busybox - make (X)
+  - make -> GNU
+    - Replace with - kati
+--- Kati
+- kati - golang, ninja
+  - golang - STEAL FROM ALPINE
+    - https://dl-cdn.alpinelinux.org/alpine/edge/community/<ARCH>/go-<ver>.apk
+      - 1.16.7-r0 ATM
+  - ninja - python, asciidoc
+    - Replace with - samurai
+      - samurai - X
+  - bmake - X
+--- XBPS
+- C99 compiler
+  - tcc - make
+    - make -> GNU
+      - Replace with - kati
+- pkgconf - X
+- zlib - X
+- openssl - make, perl
+  - make -> GNU
+    - Replace with - kati
+  - perl - zlib, bzip
+    - zlib - X
+    - bzip2 - X
+- libarchive - liblz4, libzstd, zlib, bzip2, liblzma
+  - liblz4 - ?
+  - zlib - X
+  - bzip2 - X
+  - liblzma - ?
+  - libzstd - zlib, liblzma, liblz4
+---
