@@ -1,0 +1,7 @@
+#!/bin/sh
+pkg=kati
+dir="$bdir/$(loc $pkg)"
+hbinrequires="go"
+cmd='go build -o kati github.com/google/kati/golang/cmd/kati'
+out="$dir/kati"
+static="1"

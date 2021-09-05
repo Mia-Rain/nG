@@ -1,0 +1,13 @@
+# example bscript for nG
+# MUST start with a shebang for /bin/sh
+# ---
+#!/bin/sh
+pkg=ex # name of pkg; MUST be equal to $0
+dir="$bdir/$(loc $pkg)" # pulls in and sets the location of build folder
+hbinrequires="" # required binaries on the host system
+gbinrequires="" # required binaries within nG's local bin/
+cbinrequires="" # required binaries within chroot/bin
+cmd='' # equal to the literal process required to build $pkg
+out="$dir/<>" # equal to outputed binary
+static="" # MUST be set if $out is not static
+# if $static is set $pkg MUST be recompiled from within chroot
